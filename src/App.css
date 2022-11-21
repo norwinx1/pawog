@@ -7,3 +7,35 @@
 #generate {
     width: max-content;
 }
+
+h1 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.MuiCard-root {
+    padding: 2em;
+}
+
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.justifyContentEvenly {
+    justify-content: space-between;
+}
+
+.contentContainer {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.justifyContentEnd {
+    justify-content: flex-end;
+}

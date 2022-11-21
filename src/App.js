@@ -1,6 +1,18 @@
 import './App.css';
-import {Button, FormControlLabel, FormGroup, Slider, Switch, TextField, Typography} from "@mui/material";
+import {
+    Button,
+    Card,
+    containerClasses,
+    FormControlLabel,
+    FormGroup,
+    Grid,
+    Slider,
+    Switch,
+    TextField,
+    Typography
+} from "@mui/material";
 import {useState} from "react";
+import CopyToClipboardButton from "./CopyToClipboardButton";
 
 function App() {
     const [buttonContent, setButtonContent] = useState('Generate');
@@ -51,36 +63,45 @@ function App() {
 
     return (
         <div className="App">
-            <h1>PAWOG</h1>
-            <FormGroup>
-                <Typography id="input-slider" gutterBottom>
-                    Passwortlänge
-                </Typography>
-                <Slider
-                    defaultValue={12}
-                    valueLabelDisplay="auto"
-                    aria-labelledby="input-slider"
-                    step={1}
-                    marks
-                    min={8}
-                    max={35}
-                    value={length}
-                    onChange={(event) => setLength(event.target.value)}
-                />
-                <FormControlLabel
-                    control={<Switch defaultChecked value={upperCase} onChange={() => setUpperCase(!upperCase)}/>}
-                    label="Grossbuchstaben"/>
-                <FormControlLabel
-                    control={<Switch defaultChecked value={numbers} onChange={() => setNumbers(!numbers)}/>}
-                    label="Zahlen"/>
-                <FormControlLabel
-                    control={<Switch value={specialChars} onChange={() => setSpecialChars(!specialChars)}/>}
-                    label="Sonderzeichen"/>
-                <br></br>
-                <TextField id="outlined-basic" label="Passwort" variant="outlined" value={password}/>
-                <br></br>
-                <Button id="generate" variant="contained" onClick={() => generatePassword()}>{buttonContent}</Button>
-            </FormGroup>
+            <Card>
+                <div className={"center"}>
+                    <h1>PAWOG</h1>
+                </div>
+                <FormGroup>
+                    <Typography id="input-slider" gutterBottom>
+                        Passwortlänge
+                    </Typography>
+                    <Slider
+                        defaultValue={12}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="input-slider"
+                        step={1}
+                        marks
+                        min={8}
+                        max={35}
+                        value={length}
+                        onChange={(event) => setLength(event.target.value)}
+
+                    />
+                    <div className={"flexContainer justifyContentEvenly contentContainer"}>
+                        <FormControlLabel
+                            control={<Switch defaultChecked value={upperCase} onChange={() => setUpperCase(!upperCase)}/>}
+                            label="Grossbuchstaben"/>
+                        <FormControlLabel
+                            control={<Switch defaultChecked value={numbers} onChange={() => setNumbers(!numbers)}/>}
+                            label="Zahlen"/>
+                        <FormControlLabel
+                            control={<Switch value={specialChars} onChange={() => setSpecialChars(!specialChars)}/>}
+                            label="Sonderzeichen"/>
+                    </div>
+                    <div className={"contentContainer"}>
+                        <TextField id="outlined-basic" label="Passwort" variant="outlined" value={password} fullWidth InputProps={{endAdornment: <CopyToClipboardButton password={password}/>}} />
+                    </div>
+                    <div className={"contentContainer flexContainer justifyContentEnd"}>
+                        <Button id="generate" variant="contained" onClick={() => generatePassword()}>{buttonContent}</Button>
+                    </div>
+                </FormGroup>
+            </Card>
         </div>
     );
 }
