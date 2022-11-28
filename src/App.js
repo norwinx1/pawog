@@ -12,6 +12,7 @@ import {
 import { useState } from 'react';
 import CopyToClipboardButton from './CopyToClipboardButton';
 import Pineapple from './pineapple/Pineapple';
+import adImage from './images/Werbung_2.png';
 
 function App() {
   const [buttonContent, setButtonContent] = useState('Generate');
@@ -65,7 +66,7 @@ function App() {
     <div className={'flexContainer'}>
       <div className={'adContainer'}>
         <a href="https://youtu.be/_ycWeIJD9wg?t=2" target={'_blank'}>
-          <img src="/Werbung_2.png" className={'adImage'} />
+          <img src={adImage} className={'adImage'} />
         </a>
       </div>
       <div className="App">
@@ -133,7 +134,7 @@ function App() {
       </div>
       <div className={'adContainer'}>
         <a href={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'} target={'_blank'}>
-          <img src="/Werbung_2.png" className={'adImage'} />
+          <img src={adImage} className={'adImage'} />
         </a>
       </div>
     </div>
