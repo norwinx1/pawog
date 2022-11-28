@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import CopyToClipboardButton from './CopyToClipboardButton';
+import Pineapple from './pineapple/Pineapple';
 
 function App() {
   const [buttonContent, setButtonContent] = useState('Generate');
@@ -19,6 +20,7 @@ function App() {
   const [upperCase, setUpperCase] = useState(true);
   const [numbers, setNumbers] = useState(true);
   const [specialChars, setSpecialChars] = useState(false);
+  const [passwordCreated, setPasswordCreated] = useState(false);
 
   const generatePassword = () => {
     let s = 'abcdefghijklmnopqrstuvwxyz';
@@ -35,6 +37,7 @@ function App() {
     setPassword(p);
     navigator.clipboard.writeText(p).then(() => {});
     setButtonIcon();
+    setPasswordCreated(true);
   };
 
   const setButtonIcon = () => {
@@ -59,67 +62,80 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Card>
-        <div className={'center'}>
-          <h1>PAWOG</h1>
-        </div>
-        <FormGroup>
-          <Typography id="input-slider" gutterBottom>
-            Passwortlänge
-          </Typography>
-          <Slider
-            defaultValue={12}
-            valueLabelDisplay="auto"
-            aria-labelledby="input-slider"
-            step={1}
-            marks
-            min={8}
-            max={35}
-            value={length}
-            onChange={(event) => setLength(event.target.value)}
-          />
-          <div className={'flexContainer justifyContentEvenly contentContainer'}>
-            <FormControlLabel
-              control={
-                <Switch
-                  defaultChecked
-                  value={upperCase}
-                  onChange={() => setUpperCase(!upperCase)}
-                />
-              }
-              label="Grossbuchstaben"
-            />
-            <FormControlLabel
-              control={
-                <Switch defaultChecked value={numbers} onChange={() => setNumbers(!numbers)} />
-              }
-              label="Zahlen"
-            />
-            <FormControlLabel
-              control={
-                <Switch value={specialChars} onChange={() => setSpecialChars(!specialChars)} />
-              }
-              label="Sonderzeichen"
-            />
+    <div className={'flexContainer'}>
+      <div className={'adContainer'}>
+        <a href="https://youtu.be/_ycWeIJD9wg?t=2" target={'_blank'}>
+          <img src="/Werbung_2.png" className={'adImage'} />
+        </a>
+      </div>
+      <div className="App">
+        <Card>
+          <div className={'center'}>
+            <h1>PAWOG</h1>
           </div>
-          <div className={'contentContainer'}>
-            <TextField
-              id="outlined-basic"
-              label="Passwort"
-              variant="outlined"
-              value={password}
-              fullWidth
-              InputProps={{ endAdornment: <CopyToClipboardButton password={password} /> }}
+          <FormGroup>
+            <Typography id="input-slider" gutterBottom>
+              Passwortlänge
+            </Typography>
+            <Slider
+              defaultValue={12}
+              valueLabelDisplay="auto"
+              aria-labelledby="input-slider"
+              step={1}
+              marks
+              min={8}
+              max={35}
+              value={length}
+              onChange={(event) => setLength(event.target.value)}
             />
-          </div>
-          <div className={'contentContainer flexContainer justifyContentEnd'}>
-            <Button id="generate" variant="contained" onClick={() => generatePassword()}>
-              {buttonContent}
-            </Button>
-          </div>
-        </FormGroup>
-      </Card>
+            <div className={'flexContainer justifyContentEvenly contentContainer'}>
+              <FormControlLabel
+                control={
+                  <Switch
+                    defaultChecked
+                    value={upperCase}
+                    onChange={() => setUpperCase(!upperCase)}
+                  />
+                }
+                label="Grossbuchstaben"
+              />
+              <FormControlLabel
+                control={
+                  <Switch defaultChecked value={numbers} onChange={() => setNumbers(!numbers)} />
+                }
+                label="Zahlen"
+              />
+              <FormControlLabel
+                control={
+                  <Switch value={specialChars} onChange={() => setSpecialChars(!specialChars)} />
+                }
+                label="Sonderzeichen"
+              />
+            </div>
+            <div className={'contentContainer'}>
+              <TextField
+                id="outlined-basic"
+                label="Passwort"
+                variant="outlined"
+                value={password}
+                fullWidth
+                InputProps={{ endAdornment: <CopyToClipboardButton password={password} /> }}
+              />
+            </div>
+            <div className={'contentContainer flexContainer justifyContentEnd'}>
+              <Button id="generate" variant="contained" onClick={() => generatePassword()}>
+                {buttonContent}
+              </Button>
+              {passwordCreated ? <Pineapple /> : ''}
+            </div>
+          </FormGroup>
+        </Card>
+      </div>
+      <div className={'adContainer'}>
+        <a href={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'} target={'_blank'}>
+          <img src="/Werbung_2.png" className={'adImage'} />
+        </a>
+      </div>
     </div>
   );
 }

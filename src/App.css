@@ -1,7 +1,6 @@
 .App {
     padding: 10px;
-    margin: auto;
-    width: 50%;
+    width: 70%;
 }
 
 #generate {
@@ -38,4 +37,12 @@ h1 {
 
 .justifyContentEnd {
     justify-content: flex-end;
+}
+
+.adContainer {
+    width: 10%;
+}
+
+.adImage {
+    max-width: 100%;
 }
