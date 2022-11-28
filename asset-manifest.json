@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pawog/static/css/main.59660089.css",
+    "main.js": "/pawog/static/js/main.ca9e9930.js",
+    "static/js/787.3f159a10.chunk.js": "/pawog/static/js/787.3f159a10.chunk.js",
+    "index.html": "/pawog/index.html",
+    "main.59660089.css.map": "/pawog/static/css/main.59660089.css.map",
+    "main.ca9e9930.js.map": "/pawog/static/js/main.ca9e9930.js.map",
+    "787.3f159a10.chunk.js.map": "/pawog/static/js/787.3f159a10.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59660089.css",
+    "static/js/main.ca9e9930.js"
+  ]
+}
