@@ -21,6 +21,7 @@ function App() {
   const [upperCase, setUpperCase] = useState(true);
   const [numbers, setNumbers] = useState(true);
   const [specialChars, setSpecialChars] = useState(false);
+  const [personalProperties, setPersonalProperties] = useState(false);
   const [passwordCreated, setPasswordCreated] = useState(false);
 
   const generatePassword = () => {
@@ -46,6 +47,13 @@ function App() {
     delay(1000).then(() => {
       setButtonContent('Generate');
     });
+  };
+
+  const setPersonal = (b) => {
+    setPersonalProperties(b);
+    setUpperCase(false);
+    setNumbers(false);
+    setSpecialChars(false);
   };
 
   const getRandomChars = (s) => {
@@ -111,6 +119,12 @@ function App() {
                   <Switch value={specialChars} onChange={() => setSpecialChars(!specialChars)} />
                 }
                 label="Sonderzeichen"
+              />
+              <FormControlLabel
+                  control={
+                    <Switch value={personalProperties} onChange={() => setPersonal(!personalProperties)} />
+                  }
+                  label="Persönlich merkbar"
               />
             </div>
             <div className={'contentContainer'}>
