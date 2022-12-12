@@ -1,6 +1,7 @@
 .App {
+    max-width: 60%;
     padding: 10px;
-    width: 70%;
+    width: 50%;
 }
 
 #generate {
@@ -19,6 +20,7 @@ h1 {
 .flexContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .center {
