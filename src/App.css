@@ -23,6 +23,15 @@ h1 {
     justify-content: center;
 }
 
+@media only screen and (max-width: 600px) {
+    .App {
+        width: 100%;
+    }
+    .flexContainer {
+        width: 100%;
+    }
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -43,6 +52,10 @@ h1 {
 
 .adContainer {
     width: 10%;
+}
+
+.horizontalAdContainer {
+    width: 100%;
 }
 
 .adImage {
