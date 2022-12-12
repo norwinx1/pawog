@@ -102,29 +102,42 @@ function App() {
                 control={
                   <Switch
                     defaultChecked
-                    value={upperCase}
+                    checked={upperCase}
                     onChange={() => setUpperCase(!upperCase)}
+                    disabled={personalProperties ?? true}
                   />
                 }
                 label="Grossbuchstaben"
               />
               <FormControlLabel
                 control={
-                  <Switch defaultChecked value={numbers} onChange={() => setNumbers(!numbers)} />
+                  <Switch
+                    defaultChecked
+                    checked={numbers}
+                    onChange={() => setNumbers(!numbers)}
+                    disabled={personalProperties ?? true}
+                  />
                 }
                 label="Zahlen"
               />
               <FormControlLabel
                 control={
-                  <Switch value={specialChars} onChange={() => setSpecialChars(!specialChars)} />
+                  <Switch
+                    checked={specialChars}
+                    onChange={() => setSpecialChars(!specialChars)}
+                    disabled={personalProperties ?? true}
+                  />
                 }
                 label="Sonderzeichen"
               />
               <FormControlLabel
-                  control={
-                    <Switch value={personalProperties} onChange={() => setPersonal(!personalProperties)} />
-                  }
-                  label="Persönlich merkbar"
+                control={
+                  <Switch
+                    checked={personalProperties}
+                    onChange={() => setPersonal(!personalProperties)}
+                  />
+                }
+                label="Persönlich merkbar"
               />
             </div>
             <div className={'contentContainer'}>
