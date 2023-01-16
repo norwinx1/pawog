@@ -1,9 +1,11 @@
 import './App.css';
-import {Button, Card, FormControlLabel, FormGroup, Slider, Switch, TextField, Typography,} from '@mui/material';
+import {Button, Card, FormControlLabel, FormGroup, Slider, Switch, TextField, Typography,useMediaQuery,
+  useTheme,} from '@mui/material';
 import {useState} from 'react';
 import CopyToClipboardButton from './CopyToClipboardButton';
 import Pineapple from './pineapple/Pineapple';
 import adImage from './images/Werbung_2.png';
+import adImageHorizontal from './images/Werbung_1.png';
 
 function App() {
     const [buttonContent, setButtonContent] = useState('Generate');
@@ -68,14 +70,20 @@ function App() {
         return new Promise((resolve) => setTimeout(resolve, time));
     };
 
-    return (
+    const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  return (
+    <div>
         <div className={'flexContainer'}>
-            <div className={'adContainer'}>
+            {!isMobile ? (<div className={'adContainer'}>
                 <a href="https://youtu.be/_ycWeIJD9wg?t=2" target={'_blank'}>
                     <img src={adImage} className={'adImage'}/>
                 </a>
             </div>
-            <div className="App">
+            ) : (
+          ''
+        )}<div className="App">
                 <Card>
                     <div className={'center'}>
                         <h1>PAWOG</h1>
@@ -175,11 +183,23 @@ function App() {
                     </FormGroup>
                 </Card>
             </div>
-            <div className={'adContainer'}>
+            {!isMobile ? (<div className={'adContainer'}>
                 <a href={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'} target={'_blank'}>
                     <img src={adImage} className={'adImage'}/>
                 </a>
-            </div>
+            </div>) : (
+          ''
+        )}
+      </div>
+      {isMobile ? (
+        <div className={'horizontalAdContainer'}>
+          <a href={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'} target={'_blank'}>
+            <img src={adImageHorizontal} className={'adImage'} />
+          </a>
+        </div>
+      ) : (
+        ''
+      )}
         </div>
     );
 }
